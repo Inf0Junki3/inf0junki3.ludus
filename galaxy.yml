@@ -1,0 +1,25 @@
+#SPDX-License-Identifier: MIT-0
+namespace: inf0junki3
+name: ludus
+version: 1.0.0
+readme: README.md
+authors:
+- inf0junki3 <inf0junki3@heapspray.io>
+description: A collection of roles for your ludus cyber-range
+license:
+- MIT-0
+license_file: 'LICENSE'
+
+tags:
+- cyber-range
+- purple-team
+
+dependencies: {}
+
+# The URL of the originating SCM repository
+repository: https://github.com/Inf0Junki3/inf0junki3.ludus
+
+# The URL to the collection issue tracker
+issues: https://github.com/Inf0Junki3/inf0junki3.ludus/issues
+
+build_ignore: []

@@ -1,0 +1,16 @@
+---
+vectr_version: 9.9.0
+vectr_hostname: "{{ range_id }}-vectr.ludus.domain"
+vectr_port: 8081
+vectr_certprofile: internal
+vectr_container_log_level: WARN
+vectr_data_dir: vectr_data
+vectr_data_key: "{{ lookup('community.general.random_string', length=16, special=false) }}"
+vectr_jws_key: "{{ lookup('community.general.random_string', length=16, special=false) }}"
+vectr_jwe_key: "{{ lookup('community.general.random_string', length=16, special=false) }}"
+vectr_compose_project_name: vectr
+vectr_postgres_password: "{{ lookup('community.general.random_string', length=16, special=false) }}"
+vectr_postgres_user: vectr_postgres_user
+vectr_postgres_db: vectr
+vectr_redis_password: "{{ lookup('community.general.random_string', length=16, special=false) }}"
+vectr_features_save_as_template: false

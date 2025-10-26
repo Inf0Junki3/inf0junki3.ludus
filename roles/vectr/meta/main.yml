@@ -1,0 +1,12 @@
+galaxy_info:
+  author: inf0junki3
+  description: Installs the vectr platform
+
+  license: MIT
+
+  min_ansible_version: "2.16"
+
+  galaxy_tags:
+    - purple-team
+
+dependencies: []

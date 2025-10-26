@@ -1,0 +1,35 @@
+---
+- name: Set up git
+  ansible.builtin.package:
+    name: git
+- name: Set up docker
+  ansible.builtin.include_role:
+    name: geerlingguy.docker
+- name: Set up the zip package
+  ansible.builtin.package:
+    name: unzip
+- name: Set up the directory
+  ansible.builtin.file:
+    path: /opt/vectr
+    state: directory
+    mode: "0600"
+- name: Pull the vectr runtime
+  ansible.builtin.get_url:
+    url: "https://github.com/SecurityRiskAdvisors/VECTR/releases/download/ce-{{ vectr_version }}/sra-vectr-runtime-{{ vectr_version }}-ce.zip"
+    dest: /opt/vectr
+    mode: "0600"
+- name: Unzips the file
+  ansible.builtin.unarchive:
+    src: /opt/vectr/sra-vectr-runtime-{{ vectr_version }}-ce.zip
+    dest: /opt/vectr/
+    remote_src: true
+- name: Configure the environment
+  ansible.builtin.template:
+    src: env.j2
+    dest: /opt/vectr/.env
+    mode: "0600"
+- name: Start vectr
+  community.docker.docker_compose_v2:
+    project_src: /opt/vectr
+    files:
+      - docker-compose.yml
