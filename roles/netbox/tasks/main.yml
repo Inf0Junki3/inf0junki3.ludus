@@ -1,0 +1,43 @@
+---
+- name: Set up git
+  ansible.builtin.package:
+    name: "{{ item }}"
+  loop:
+    - git
+    - python3-cryptography
+
+- name: Set up docker
+  ansible.builtin.include_role:
+    name: geerlingguy.docker
+
+- name: Create the directory for the certs
+  ansible.builtin.file:
+    path: "{{ item }}"
+    mode: "0755"
+    state: directory
+  loop:
+    - /opt/netbox
+    - /opt/netbox/certs
+    - /opt/netbox/config
+
+- name: Generate the private key
+  community.crypto.openssl_privatekey:
+    path: /opt/netbox/certs/key.pem
+    mode: "0644"
+
+- name: Generate the certificate
+  community.crypto.x509_certificate:
+    path: /opt/netbox/certs/cert.pem
+    privatekey_path: /opt/netbox/certs/key.pem
+    mode: "0644"
+    provider: selfsigned
+
+- name: Set up the docker compose file
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: /opt/netbox/docker-compose.yml
+
+- name: Run the compose project
+  community.docker.docker_compose_v2:
+    project_src: /opt/netbox
+

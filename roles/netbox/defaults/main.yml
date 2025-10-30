@@ -1,0 +1,27 @@
+GENERIC_TIMEZONE: "America/New_York"
+TZ: "America/New_York"
+PUID: "1000"
+PGID: "1000"
+POSTGRES_USER: "postgres"
+POSTGRES_DB: "netbox"
+SUPERUSER_EMAIL: "itsame@mario.time"
+SUPERUSER_PASSWORD: "password"
+ALLOWED_HOST: "netbox.ludus.domain"
+DB_NAME: "netbox"
+DB_USER: "postgres"
+DB_PASSWORD: "badpassword"
+DB_HOST: "postgres"
+DB_PORT: ""
+REDIS_HOST: "redis"
+REDIS_PORT: ""
+REDIS_PASSWORD: "badpassword"
+REDIS_DB_TASK: ""
+REDIS_DB_CACHE: ""
+# BASE_PATH: #optional
+# REMOTE_AUTH_ENABLED: #optional
+# REMOTE_AUTH_BACKEND: #optional
+# REMOTE_AUTH_HEADER: #optional
+# REMOTE_AUTH_AUTO_CREATE_USER: #optional
+# REMOTE_AUTH_DEFAULT_GROUPS: #optional
+# REMOTE_AUTH_DEFAULT_PERMISSIONS: #optional
+
