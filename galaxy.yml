@@ -6,13 +6,11 @@ readme: README.md
 authors:
 - inf0junki3 <inf0junki3@heapspray.io>
 description: A collection of roles for your ludus cyber-range
-license:
-- MIT-0
 license_file: 'LICENSE'
 
 tags:
-- cyber-range
-- purple-team
+- cyber_range
+- purple_team
 
 dependencies: {}
 
